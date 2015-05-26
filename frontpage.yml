@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: ssh
+  remote_user: "{{ docker_user }}"
+  roles:
+      - { role: account, sudo: yes }
+      - { role: common, sudo: yes }
+      - { role: docker, sudo: yes }
+      - frontpage

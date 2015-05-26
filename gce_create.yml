@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: False
+  connection: local
+  roles:
+      - gce_instance_create
+
+- hosts: gce_group
+  gather_facts: False
+  roles:
+      - { role: gce_disk_partition, sudo: yes }
