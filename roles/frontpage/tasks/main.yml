@@ -1,0 +1,16 @@
+---
+
+- name: checkout dictybase frontpage image source
+  git:  repo={{ frontpage_repo }} 
+            dest={{ frontpage_checkout_folder }}
+            version={{ frontpage_release_tag }}
+
+- name: pull service images for compose
+  shell: docker-compose -f frontpage.yml pull executable=/bin/bash 
+  args:
+    chdir: "{{ frontpage_checkout_folder }}"
+
+- name: run frontpage application with docker-compose 
+  shell: docker-compose -f frontpage.yml up -d executable=/bin/bash
+  args:
+    chdir: "{{ frontpage_checkout_folder }}"

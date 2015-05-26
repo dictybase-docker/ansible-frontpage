@@ -1,0 +1,12 @@
+---
+- name: resize disks for centos6
+  shell: resize2fs {{ disk_partition }} executable=/bin/bash
+  when: image is not defined
+
+- name: resize disks for centos6
+  shell: resize2fs {{ disk_partition }} executable=/bin/bash
+  when: image is defined and image == "centos6"
+
+- name: resize disks for centos7
+  shell: xfs_growfs / executable=/bin/bash
+  when: image is defined and image == "centos7"

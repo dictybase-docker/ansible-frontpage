@@ -1,0 +1,4 @@
+---
+gce_image: centos65-sidd-1427765262 
+image_name: centos65-jbrowse
+startup_url: https://ad28743c36e3072e49087e20e2a75c672c994c6a.googledrive.com/host/0BwdS8-tnWz5RfmpOWHpUeVJFNmVyWmIzdGZ4RFVuQmJCU0t6YnhBX3IwTVFYdHZEUVpSWDQ/fdisk.sh

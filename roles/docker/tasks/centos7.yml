@@ -1,0 +1,6 @@
+---
+- name: Add virt SIG repository
+  copy: src=virt7-testing.repo dest={{ yum_repo_folder }}
+
+- name: install docker
+  yum: name=docker state=present

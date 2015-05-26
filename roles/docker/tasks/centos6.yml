@@ -1,0 +1,7 @@
+---
+- name: Install epel release
+  yum: name={{ epel_mirror }} state=present
+
+- name: install docker
+  yum: name=docker-io state=present
+

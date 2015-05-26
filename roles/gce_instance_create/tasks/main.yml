@@ -1,0 +1,8 @@
+---
+# tasks file for gce
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ image }}.yml"
+    - "centos6.yml"
+
+- include: instance.yml 

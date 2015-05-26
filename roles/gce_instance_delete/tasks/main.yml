@@ -1,0 +1,12 @@
+---
+# tasks file for gce_instance_delete
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ image }}.yml"
+    - "centos6.yml"
+
+- name: delete instance
+  gce:  name={{ image_name }} pem_file={{ pem_file }} 
+        project_id={{ project }} service_account_email={{ email }}
+        state=absent
+        zone={{zone}}

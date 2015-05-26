@@ -1,0 +1,31 @@
+---
+# tasks file for gce_firewall
+- name: open up port 9595
+  gce_net:
+      fwname=jbrowse
+      name="default"
+      pem_file={{ pem_file }}
+      project_id={{ project }}
+      service_account_email={{ email }}
+      state=active
+      allowed="tcp:9595"
+      
+#- name: drop the http port 80
+  #gce_net:
+      #fwname=allow-http
+      #name="default"
+      #pem_file={{ pem_file }}
+      #project_id={{ project }}
+      #service_account_email={{ email }}
+      #state=absent
+      #allowed="tcp:80"
+
+#- name: drop the default http port 80
+  #gce_net:
+      #fwname=default-allow-http
+      #name="default"
+      #pem_file={{ pem_file }}
+      #project_id={{ project }}
+      #service_account_email={{ email }}
+      #state=absent
+      #allowed="tcp:80"

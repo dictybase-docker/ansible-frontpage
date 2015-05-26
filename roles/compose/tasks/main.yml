@@ -1,0 +1,6 @@
+---
+# tasks file for compose
+- name: install docker compose
+  get_url: url={{ compose_url }} dest={{ compose_dest }}
+            validate_certs=no  mode=0755 
+            owner=root group=root

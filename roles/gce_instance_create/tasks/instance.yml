@@ -1,0 +1,24 @@
+---
+- name: launch instance
+  gce: image={{ gce_image }} name={{ image_name }} pem_file={{ pem_file }} 
+        project_id={{ project }} service_account_email={{ email }}
+        metadata='{"startup-script-url":"{{ startup_url }}"}'
+        zone={{ zone }}
+        state=active
+        tags=jbrowse
+  register: gce
+
+- name: wait for ssh to come up
+  local_action:
+      module: wait_for
+          host={{ item.public_ip }}
+          port=22
+          delay=30
+          timeout=180
+  with_items: gce.instance_data
+
+- name: Add dynamic host
+  add_host: name={{ item.public_ip }} 
+             groups=gce_group 
+  with_items: gce.instance_data
+

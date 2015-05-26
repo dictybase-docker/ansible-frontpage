@@ -1,0 +1,22 @@
+---
+# tasks file for gce
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ image }}.yml"
+    - "centos6.yml"
+
+- include: centos6.yml 
+  when: image is defined and image == "centos6" 
+
+- include: centos6.yml 
+  when: image is not defined
+
+- include: ubuntu.yml
+  when: image is defined and image == "ubuntu" 
+
+- include: centos7.yml
+  when: image is defined and image == 'centos7'
+
+- name: start docker
+  service: name=docker state=started enabled=yes sleep=4
+

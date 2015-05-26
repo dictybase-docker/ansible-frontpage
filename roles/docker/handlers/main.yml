@@ -1,0 +1,5 @@
+---
+- name: show information
+  command: /usr/bin/docker info
+- name: pull image
+  command: /usr/bin/docker pull centos
