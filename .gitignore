@@ -1,0 +1,7 @@
+hosts
+!hosts.sample
+host_vars
+group_vars
+gce_credentials
+inventory
+.vagrant
