@@ -1,7 +1,7 @@
 # /etc/sysconfig/docker
 
 # Modify these options if you want to change the way the docker daemon runs
-OPTIONS='--selinux-enabled -H=unix:///var/run/docker.sock -H=0.0.0.0:2376 --tlsverify --tlscacert={docker_tls_path}/ca.pem --tlscert={docker_tls_path}/cert.pem --tlskey={docker_tls_path}/key.pem'
+OPTIONS='--selinux-enabled -H=unix:///var/run/docker.sock -H=0.0.0.0:2376 --tlsverify --tlscacert={{ docker_tls_path }}/ca.pem --tlscert={{ docker_tls_path }}/cert.pem --tlskey={{ docker_tls_path }}/key.pem'
 
 
 #OPTIONS='--selinux-enabled -H=unix:///var/run/docker.sock -H=0.0.0.0:4245'
