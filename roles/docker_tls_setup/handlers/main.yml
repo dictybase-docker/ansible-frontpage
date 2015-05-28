@@ -1,0 +1,4 @@
+---
+# handlers file for docker_tls_setup
+- name: start tls docker
+  service: name=docker state=restarted sleep=4

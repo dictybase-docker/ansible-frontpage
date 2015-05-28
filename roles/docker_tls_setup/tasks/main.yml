@@ -1,0 +1,6 @@
+---
+# tasks file for docker_tls_setup
+- name: copy docker tls configuration
+  template: src=docker.j2 dest=/etc/sysconfig/docker mode=0644
+  notify:
+      - start tls docker
