@@ -1,0 +1,3 @@
+image: centos7
+# remote folder under /etc/ssl where the tls files will be copied
+docker_tls_path: /etc/ssl/docker_localhost

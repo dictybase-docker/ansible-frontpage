@@ -19,26 +19,28 @@ cp hosts.sample hosts
 Then edit accordingly. For a local vagrant machine use the `dicty-local` group
 and fill up the `ansible_ssh_private_key_file` option. Generally it should be
 found inside the `.vagrant` subfolder of folder where the `Vagrantfile` is
-located. For example, if the `Vagrantfile` is in `/home/caboose/vms`, then the
+located. 
+
+For example, if the `Vagrantfile` is in `/home/caboose/vms`, then the
 private key would be in
+
 `/home/caboose/vms/.vagrant/machines/default/virtualbox/private_key`
 
-* Setup two global variables in a file inside `group_vars` folder. The filename
+* Setup one global variables in a file inside `group_vars` folder. The filename
   should match the group name inside the hosts file.
 
 ```
 mkdir group_vars
 ```
 
-So, for `dicty-local` group, create a file `group_vars/dicty-local` and setup `docker_user` and `image` variables.
+So, for `dicty-local` group, create a file `group_vars/dicty-local` and setup `docker_user` variable.
 
 ```touch group_vars/dicty-local```
 
-For local vagrant vm, use the following values
+For local vagrant vm, use the following value
 
 ```
 docker_user: vagrant
-image: centos7
 ```
 
 ### End to End
@@ -62,6 +64,7 @@ ansible-playbook -v -i hosts -l dicty-local docker_install.yml
 ### Docker with https
 #### Generating certificates
 You need the following files to get it working
+
 1. A certificate authority private key
 2. Generate a certificate authority(CA) using the above private key 
 3. A private key for server
@@ -76,7 +79,7 @@ You need the following files to get it working
 8. Generate a signed certificate for client using the previous(7) signing request
    and the CA from step 2.
 
-The [documentation](https://docs.docker.com/articles/https/)for setting up docker with HTTPS 
+The [documentation](https://docs.docker.com/articles/https/) for setting up docker with HTTPS 
 shows how to generate all of the above files. However, only skip the step for setting up the docker daemon,
 the ansible playbook below takes care of it.
 
