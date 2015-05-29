@@ -94,6 +94,10 @@ tlscacert: # full path
 tlscert: # full path
 # private key for server
 tlskey: # full path
+
+# remote folder under /etc/ssl where the tls files will be copied
+docker_tls_path: /etc/ssl/docker_localhost
+# The above is for vagrant localhost. Change for other hosts accordingly.
 ```
 
 Run the playbook `docker_install_tls.yml`. For local vagrant host,
