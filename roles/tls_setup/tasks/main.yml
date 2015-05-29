@@ -1,0 +1,13 @@
+---
+# tasks file for tls_setup
+- name: create folder under /etc/ssl
+  file: path={{ docker_tls_path }} state=directory
+
+- name: copy certificate authority file 
+  copy: src={{ tlscacert }} dest={{ docker_tls_path }} mode=0400
+
+- name: copy signed certificate 
+  copy: src={{ tlscert }} dest={{ docker_tls_path }} mode=0444
+
+- name: copy private key
+  copy: src={{ tlskey }} dest={{ docker_tls_path }} mode=0400
