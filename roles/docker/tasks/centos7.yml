@@ -3,7 +3,7 @@
   copy: src=virt7-testing.repo dest={{ yum_repo_folder }}
 
 - name: install docker
-  yum: name=docker state=present
+  yum: name=docker state=present enablerepo=virt7-testing
 
 - name: stop firewalld
   service: name=firewalld state=stopped enabled=no
