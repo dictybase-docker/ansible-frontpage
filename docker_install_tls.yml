@@ -8,3 +8,4 @@
       - { role: common_setup, sudo: yes }
       - { role: docker, sudo: yes }
       - { role: docker_tls_setup, sudo: yes }
+      - { role: webserver, sudo: yes }

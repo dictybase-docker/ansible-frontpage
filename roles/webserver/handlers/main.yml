@@ -1,0 +1,4 @@
+---
+# handlers file for webserver
+- name: start frontpage proxy
+  service:  name=nginx state=restarted 

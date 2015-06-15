@@ -1,0 +1,4 @@
+---
+# handlers file for nginx
+- name: start base nginx
+  service:  name=nginx state=started enabled=yes
